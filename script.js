@@ -1,6 +1,9 @@
 
 let numOfPixels = 16;
 
+document.onload = createBoard();
+
+function createBoard() {
 for (i=0; i < numOfPixels*numOfPixels; i++){  
     let pixel = document.createElement('div');  
     pixel.className = "pixel";
@@ -8,7 +11,7 @@ for (i=0; i < numOfPixels*numOfPixels; i++){
         e.target.style.backgroundColor = 'blue';
     })
     document.querySelector('#container').appendChild(pixel);
-
+}
 }
 
 const number = document.querySelector('#number');
@@ -16,6 +19,7 @@ number.addEventListener('click', () => {
     numOfPixels = prompt("Please enter a number", 64);
     document.querySelector('#container').style.gridTemplateColumns = `repeat(${numOfPixels}, 1fr)`;
     document.querySelector('#container').style.gridTemplateRows = `repeat(${numOfPixels}, 1fr)`;
+    createBoard();
 })
 
 
